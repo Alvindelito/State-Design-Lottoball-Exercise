@@ -23,4 +23,13 @@ class Lottery extends Component {
   }
 }
 
+/* 
+  THE PLAN SO FAR:
+  - On initial load, nums state array will be empty.
+  - A function will be executed to generate an array of new numbers
+  - For loop will be used to generate lotto balls. and depending on how many lotto balls will be created based on numBalls prop value from parent.
+  - There will be a separate function for a random number generator. Max value of random number generator is based on maxNum prop passed on from parent component.
+  - Generate button will generate a separate array of new numbers through a separate function. Then setState to the new array.
+*/
+
 export default Lottery;
