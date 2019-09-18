@@ -2,34 +2,44 @@ import React, { Component } from 'react';
 import LottoBall from './LottoBall';
 
 class Lottery extends Component {
+  static defaultProps = {
+    title: 'Lotto',
+    maxBalls: 6,
+    maxNum: 40
+  }
   constructor(props) {
     super(props);
     this.state = {
-      nums: [2]
+      nums: Array.from({ length: this.props.maxBalls })
     }
+    this.newLottoNumbers = this.newLottoNumbers.bind(this);
     this.generate = this.generate.bind(this);
   }
+  newLottoNumbers(numBalls, maxNum) {
+    let newNums = [];
+    let randNum;
+    for (let i=0; i < numBalls; i++ ) {
+      randNum = Math.floor(Math.random() * maxNum);
+      newNums.push(randNum);
+    }
+    this.setState({nums: newNums});
+  }
   generate(e) {
-    console.log('clicked!');
+    this.newLottoNumbers(this.props.numBalls, this.props.maxNum);
   }
   render() {
     return (
-      <div>
+      <section className="Lottery">
         <h1>{this.props.title}</h1>
-        <LottoBall ball={this.state.nums[0]} />
+        <div>
+          {this.state.nums.map(n => (
+            <LottoBall ball={n} />
+          ))}
+        </div>
         <button onClick={this.generate}>Generate</button>
-      </div>
+      </section>
     )
   }
 }
-
-/* 
-  THE PLAN SO FAR:
-  - On initial load, nums state array will be empty.
-  - A function will be executed to generate an array of new numbers
-  - For loop will be used to generate lotto balls. and depending on how many lotto balls will be created based on numBalls prop value from parent.
-  - There will be a separate function for a random number generator. Max value of random number generator is based on maxNum prop passed on from parent component.
-  - Generate button will generate a separate array of new numbers through a separate function. Then setState to the new array.
-*/
 
 export default Lottery;

@@ -1,3 +1,10 @@
+EXERCISE FINISHED. NOTES FROM DOING THE EXERCISE:
+
+I was able to finish 90% of the javascript on my own. I completely copied the css, only because javascript is my focus for now. I was having trouble with generating numbers into the balls. However, I had to change only a couple lines of code and that was it! Line 13 and line 35-36. 
+
+After some thoughts, I finally realized my mistake. I forgot that the numbers don't need to be re-rendered when they're in state. They are automatically changed without any action. As long as I got the numbers in the balls shown, all I needed was to change the state with the button! I really need to practice Mapping arrays by the way."
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
